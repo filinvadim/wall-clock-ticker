@@ -1,2 +1,2 @@
-# wall-clocks-ticker
-Golang wall clocks ticker
+# wall-clock-ticker
+Golang wall clock ticker
