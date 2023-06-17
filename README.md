@@ -8,7 +8,7 @@ Installation
 go get -u github.com/filinvadim/wall-clock-ticker
 ```
 
-USAGE
+Usage
 --------
 
 Using Golang wall clock ticker is very much like time.NewTicker with the addition of an accuracy and start time.
@@ -25,7 +25,7 @@ import (
 )
 
 func main() {
-	t := wct.New(time.Minute, time.Second)
+	t := wct.NewWCTicker(time.Minute, time.Second)
 	for tick := range t.C {
 		// Process tick
 		fmt.Println("tick:", tick)
