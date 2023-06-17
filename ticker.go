@@ -64,7 +64,6 @@ func (t *WCTicker) Stop() {
 
 func (t *WCTicker) tick(c chan time.Time) {
 	var isTicked bool
-	for {
 		for {
 			select {
 			case now := <-t.innerTicker.Ch():
@@ -88,7 +87,7 @@ func (t *WCTicker) tick(c chan time.Time) {
 				return
 			}
 		}
-	}
+	
 
 }
 
