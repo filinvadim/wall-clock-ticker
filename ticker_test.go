@@ -506,6 +506,15 @@ func TestTicker_BigMinutesDuration_Success(t *testing.T) {
 	}
 }
 
+func TestTicker_Close_Success(t *testing.T) {
+	wcTick := NewCWTicker(time.Second, time.Millisecond)
+
+	go wcTick.Stop()
+	for now := range wcTick.C {
+		t.Fatal(now)
+	}
+}
+
 func createTestTime(h, m, s int) time.Time {
 	return time.Date(2020, 3, 24, h, m, s, 10, time.Local)
 }

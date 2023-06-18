@@ -54,40 +54,35 @@ func NewCWTicker(clockArrowsPosition, accuracy time.Duration) *WCTicker {
 }
 
 func (t *WCTicker) Stop() {
-
-	close(t.done)
-
 	if t.innerTicker != nil {
 		t.innerTicker.Stop()
 	}
+	close(t.done)
 }
 
 func (t *WCTicker) tick(c chan time.Time) {
 	var isTicked bool
-		for {
-			select {
-			case now := <-t.innerTicker.Ch():
-				if !t.isEqualDuration(now) {
-					isTicked = false
-					continue
-				}
-				if isTicked {
-					continue
-				}
-				isTicked = true
-
-				select {
-				case c <- now:
-				default:
-				}
-
+	for {
+		select {
+		case now := <-t.innerTicker.Ch():
+			if !t.isEqualDuration(now) {
+				isTicked = false
 				continue
-
-			case <-t.done:
-				return
 			}
+			if isTicked {
+				continue
+			}
+			isTicked = true
+
+			select {
+			case c <- now:
+			default:
+			}
+		case <-t.done:
+			close(c)
+			return
 		}
-	
+	}
 
 }
 
