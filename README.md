@@ -25,7 +25,8 @@ import (
 )
 
 func main() {
-	t := wct.NewWCTicker(time.Minute, time.Second)
+	// ticks every 59th minute of every hour
+	t := wct.NewWCTicker(time.Minute*59, time.Second)
 	for tick := range t.C {
 		// Process tick
 		fmt.Println("tick:", tick)
