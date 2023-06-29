@@ -1,3 +1,6 @@
+<p>
+  <a href="https://github.com/filinvadim/wall-clock-ticker/actions"><img alt="golang-action status" src="https://github.com/filinvadim/wall-clock-ticker/workflows/Go/badge.svg"></a>
+</p>
 # wall-clock-ticker
 
 Golang wall clock ticker is a [Go](http://golang.org/) library that provides a ticker which ticks according to wall clock.
