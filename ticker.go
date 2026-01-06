@@ -35,7 +35,7 @@ func NewCWTicker(clockArrowsPosition, accuracy time.Duration) *WCTicker {
 	}
 	if accuracy < time.Millisecond {
 		panic(
-			"there is no point to set accuracy check duration less than microsecond" +
+			"there is no point to set accuracy check duration less than millisecond" +
 				" - regular wall clock have only seconds precision",
 		)
 	}
